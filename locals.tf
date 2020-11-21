@@ -31,7 +31,7 @@ locals {
     "id" = {
       "key"      = "slug"
       "values"   = [var.image_slug]
-      "match_by" = "substring"
+      "match_by" = "re"
       "all"      = true
     }
   } : {}

@@ -32,7 +32,7 @@ variable image_name {
 
 variable image_slug {
   type        = string
-  description = "(Optional) This slug will be added as a substring match on image filters."
+  description = "(Optional) This slug will be added as a regex match on image filters."
   default     = null
 }
 
@@ -40,12 +40,6 @@ variable image_source {
   type        = string
   description = "(Optional) This source (distribution) will be added as an exact match on image filters."
   default     = null
-}
-
-variable image_latest {
-  type        = bool
-  description = "(Optional) Set to `true` to pick the latest of image that matches provided filters and arranged by sort.  Defaults to `true`."
-  default     = true
 }
 
 variable image_filters {
@@ -57,6 +51,12 @@ variable image_filters {
   }))
   description = "(Optional) Map of objects representing filter `key`, `values`, `match_by` and `all` for image selection."
   default     = {}
+}
+
+variable image_latest {
+  type        = bool
+  description = "(Optional) Set to `true` to pick the latest of image that matches provided filters and arranged by sort.  Defaults to `true`."
+  default     = true
 }
 
 variable image_sort {
