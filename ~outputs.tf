@@ -11,7 +11,8 @@ output droplet_ip {
 }
 
 output cloudinit_configs {
-  value = var.cloudinit_enabled ? keys(local.cloudinit_config_parts) : null
+  value       = var.cloudinit_enabled ? keys(local.cloudinit_config_parts) : null
+  description = "A list of enabled cloudinit configurations"
 }
 
 output deployment_tags {
@@ -23,7 +24,8 @@ output tags {
 }
 
 output cloudinit_rendered {
-  value = var.cloudinit_enabled ? data.template_cloudinit_config.this.rendered : null
+  value     = var.cloudinit_enabled ? data.cloudinit_config.this.rendered : null
+  sensitive = true # inspect state to debug rendered cloudinit parts
 }
 
 output droplet_image {
