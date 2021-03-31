@@ -1,4 +1,5 @@
 data "cloudinit_config" "this" {
+  count = var.cloudinit_enabled ? 1 : 0
   # digital ocean does not like gzipped or encoded data
   gzip          = false
   base64_encode = false

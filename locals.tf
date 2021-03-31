@@ -111,12 +111,6 @@ locals {
         content      = local.script_ca_trust
       }
     } : {},
-    var.cloudinit_enabled ? var.cloudinit_config_parts
-    : {
-      "null" = {
-        content_type = "text/x-shellscript"
-        content      = ""
-      }
-    },
+    var.cloudinit_config_parts,
   )
 }

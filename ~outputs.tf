@@ -24,7 +24,7 @@ output tags {
 }
 
 output cloudinit_rendered {
-  value     = var.cloudinit_enabled ? data.cloudinit_config.this.rendered : null
+  value     = var.cloudinit_enabled ? data.cloudinit_config.this.0.rendered : null
   sensitive = true # inspect state to debug rendered cloudinit parts
 }
 
