@@ -101,7 +101,8 @@ variable dns_enabled {
 }
 
 variable domain {
-  type = string
+  type    = string
+  default = null
 }
 
 variable floating_ip_enabled {
