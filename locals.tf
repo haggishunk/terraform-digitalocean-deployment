@@ -63,7 +63,7 @@ locals {
 
   # ssh access selection
   ssh_keys_from_filter = [for k in data.digitalocean_ssh_keys.this.ssh_keys : k.id]
-  ssh_keys             = var.ssh_enabled ? coalescelist(var.ssh_keys_ids, local.ssh_keys_from_filter) : null
+  ssh_keys             = var.ssh_enabled ? concat(var.ssh_keys_ids, local.ssh_keys_from_filter) : null
 
   # general module defs
   dir_files     = "${path.module}/files"
