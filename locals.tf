@@ -72,7 +72,8 @@ locals {
   script_mount_volume = templatefile(
     "${local.dir_templates}/mount-volume-by-name.sh.tpl",
     {
-      DATA_VOLUME_NAME = var.volume_name
+      DATA_VOLUME_NAME  = var.volume_name
+      DATA_VOLUME_MOUNT = var.volume_mount
     },
   )
 

@@ -120,6 +120,11 @@ variable volume_name {
   default = "data"
 }
 
+variable volume_mount {
+  type    = string
+  default = "/data"
+}
+
 variable volume_size {
   type    = number
   default = 10
