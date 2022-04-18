@@ -5,8 +5,17 @@ locals {
   # everything this module creates gets these
   module_tags = [
     "project:${var.project_name}",
+    "name:${local.name}",
     "managed_by:terraform",
   ]
+
+  tags = toset(concat(
+    local.module_tags,
+    var.tags,
+  ))
+
+  # ssh firewall controlled by `ssh:true` tag
+  ssh_tags = var.ssh_enabled ? ["ssh:true"] : []
 
   # droplet image selections
   image_filter_id = var.image_id != null ? {
@@ -51,14 +60,6 @@ locals {
     local.image_filter_slug,
     local.image_filter_source,
     var.image_filters,
-  )
-
-  # ssh firewall controlled by `ssh:true` tag
-  ssh_tags = var.ssh_enabled ? ["ssh:true"] : []
-
-  tags = concat(
-    local.module_tags,
-    var.tags,
   )
 
   # ssh access selection

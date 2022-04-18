@@ -8,8 +8,8 @@ resource "digitalocean_droplet" "this" {
   ssh_keys           = var.ssh_enabled ? local.ssh_keys : null
   user_data          = var.cloudinit_enabled ? data.cloudinit_config.this.0.rendered : null
 
-  tags = concat(
+  tags = toset(concat(
     local.tags,
     local.ssh_tags,
-  )
+  ))
 }
