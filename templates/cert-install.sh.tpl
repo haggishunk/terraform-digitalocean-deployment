@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 # ensure cert path exists
 mkdir -p ${CERT_PATH}

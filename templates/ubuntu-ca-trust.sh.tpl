@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 # add ca cert
 mkdir /usr/local/share/ca-certificates/custom
