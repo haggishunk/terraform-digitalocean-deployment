@@ -9,10 +9,10 @@ locals {
     "managed_by:terraform",
   ]
 
-  tags = toset(concat(
+  tags = concat(
     local.module_tags,
     var.tags,
-  ))
+  )
 
   # ssh firewall controlled by `ssh:true` tag
   ssh_tags = var.ssh_enabled ? ["ssh:true"] : []
