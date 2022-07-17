@@ -23,6 +23,10 @@ output tags {
   value = local.tags
 }
 
+output firewall_tags {
+  value = local.firewall_tags
+}
+
 output cloudinit_rendered {
   value     = var.cloudinit_enabled ? data.cloudinit_config.this.0.rendered : null
   sensitive = true # inspect state to debug rendered cloudinit parts
