@@ -14,6 +14,11 @@ locals {
     var.tags,
   )
 
+  # remember max number of 5 tags ... keep them simple and sensibly scoped
+  # firewall_tags = compact([for tag in local.tags : contains(["app:", "access:"], tag) ? tag : ""])
+  tag_keys      = [for tag in local.tags : split(":", tag)[0]]
+  firewall_tags = matchkeys(local.tags, local.tag_keys, ["app", "access"])
+
   # ssh firewall controlled by `ssh:true` tag
   ssh_tags = var.ssh_enabled ? ["ssh:true"] : []
 

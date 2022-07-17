@@ -1,6 +1,6 @@
 resource "digitalocean_firewall" "this" {
   name = local.name
-  tags = local.tags
+  tags = local.firewall_tags
 
   dynamic "inbound_rule" {
     for_each = var.inbound_rules
