@@ -2,8 +2,8 @@ output droplet_dnsname {
   value = var.dns_enabled ? digitalocean_record.this.0.fqdn : null
 }
 
-output floating_ip {
-  value = var.floating_ip_enabled ? digitalocean_floating_ip.this.0.ip_address : null
+output reserved_ip {
+  value = var.reserved_ip_enabled ? digitalocean_reserved_ip.this.0.ip_address : null
 }
 
 output droplet_ip {
@@ -21,6 +21,10 @@ output deployment_tags {
 
 output tags {
   value = local.tags
+}
+
+output firewall_tags {
+  value = local.firewall_tags
 }
 
 output cloudinit_rendered {

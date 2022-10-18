@@ -105,7 +105,7 @@ variable domain {
   default = null
 }
 
-variable floating_ip_enabled {
+variable reserved_ip_enabled {
   type    = bool
   default = false
 }
@@ -145,6 +145,7 @@ variable inbound_rules {
     port_range       = string
     protocol         = string
     source_addresses = list(string)
+    source_tags      = list(string)
   }))
   default = {}
 }
@@ -154,6 +155,7 @@ variable outbound_rules {
     port_range            = string
     protocol              = string
     destination_addresses = list(string)
+    destination_tags      = list(string)
   }))
   default = {}
 }
