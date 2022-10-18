@@ -70,9 +70,10 @@ variable region {
   description = "Region to deploy resources to.  Also filters droplet images."
 }
 
-variable private_networking {
-  type    = bool
-  default = true
+variable vpc_uuid {
+  type        = string
+  default     = null
+  description = "The VPC uuid if private networking is desired.  Default is `null` which locates the droplet in the default vpc."
 }
 
 variable monitoring {
